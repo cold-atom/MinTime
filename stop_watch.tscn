@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvki0lrc00ngr"]
+
+[ext_resource type="Script" path="res://stop_watch.gd" id="1_7ns1x"]
+[ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="1_wdgkj"]
+[ext_resource type="Script" path="res://stopwatch_main.gd" id="3_6jf1v"]
+[ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="4_8lggi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfbdv"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyu5s"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3out"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[node name="StopWatch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ns1x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.5
+offset_top = -118.0
+offset_right = 250.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timah" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_wdgkj")
+theme_override_font_sizes/font_size = 200
+text = "00:00:00"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wdgkj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tfbdv")
+text = "Start"
+
+[node name="Stop" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wdgkj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tyu5s")
+text = "Stop"
+
+[node name="Reset" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_wdgkj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3out")
+text = "Reset"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("3_6jf1v")
+
+[node name="Left" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("4_8lggi")
+flip_h = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]

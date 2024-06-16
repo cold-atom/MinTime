@@ -1,0 +1,9 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bnkm5dtt784qq"]
+
+[resource]
+bus/1/name = &"ToggleSound"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -5.04538
+bus/1/send = &"Master"

@@ -1,0 +1,277 @@
+[gd_scene load_steps=10 format=3 uid="uid://n7xuxr04ynmt"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8ukk4"]
+[ext_resource type="Texture2D" uid="uid://durhu6u8byuhg" path="res://graphics/circle.png" id="3_02coy"]
+[ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="3_tw67r"]
+[ext_resource type="AudioStream" uid="uid://cp7j1swxp0xcm" path="res://sounds/switch_005.ogg" id="4_bbxej"]
+[ext_resource type="AudioStream" uid="uid://c2tgq7fqfaeep" path="res://sounds/switch_006.ogg" id="5_yrr8k"]
+[ext_resource type="Script" path="res://Control.gd" id="7_1y7k3"]
+[ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="7_immdm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re01w"]
+bg_color = Color(0, 0, 0, 0.960784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6ip2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ukk4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.5
+offset_top = -144.0
+offset_right = 250.5
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 230
+text = "7:05"
+vertical_alignment = 1
+
+[node name="AmPM" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 40
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Date" type="Label" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 87.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.941176, 1, 0.941176, 1)
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 30
+text = "Date"
+
+[node name="Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_re01w")
+
+[node name="Quit" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -141.0
+offset_right = 82.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -38.0
+offset_right = 100.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="DisplayDate" type="CheckButton" parent="Settings/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/h_separation = 45
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 30
+text = "Display Date"
+
+[node name="AboutMinTime" type="Button" parent="Settings/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 30
+text = "About MinTime"
+
+[node name="About" type="Panel" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -220.0
+offset_right = 295.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6ip2")
+
+[node name="Close" type="Button" parent="Settings/About"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -46.0
+offset_right = 26.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/About"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -146.0
+offset_right = 243.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]A simple clock application with 
+Time, Timer and Stopwatch
+
+Dev: Cold Atom
+
+Github Project"
+
+[node name="LinkButton" type="LinkButton" parent="Settings/About"]
+layout_mode = 1
+offset_left = 285.0
+offset_top = 223.0
+offset_right = 326.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 20
+text = "Link"
+
+[node name="Label" type="Label" parent="Settings/About"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 20.0
+offset_right = 77.5
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_tw67r")
+theme_override_font_sizes/font_size = 20
+text = "About MinTime"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.02
+anchor_right = 1.0
+anchor_bottom = 0.02
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_02coy")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bbxej")
+
+[node name="ToggleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yrr8k")
+bus = &"ToggleSound"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_1y7k3")
+
+[node name="Right" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("7_immdm")
+
+[node name="Left" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("7_immdm")
+flip_h = true
+
+[connection signal="date_update" from="." to="." method="_on_date_update"]
+[connection signal="pressed" from="Settings/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer2/DisplayDate" to="." method="_on_display_date_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer2/AboutMinTime" to="." method="_on_about_min_time_pressed"]
+[connection signal="pressed" from="Settings/About/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_on_right_pressed"]
+[connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]
