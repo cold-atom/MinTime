@@ -1,4 +1,5 @@
 # MinTime
+![Clock MinTime](icon/mintime.png)
 
 MinTime is a simple clock, timer and stopwatch application made with Godot.
 
