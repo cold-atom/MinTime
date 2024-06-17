@@ -21,7 +21,7 @@ To get this project to your local machine download the zip file or clone the rep
 
 
 
-## Devlopment
+## Development
 
 You are free to download and modify the code however you like and also if you want to contribute to this project make a new branch, make changes
 and submit pull request.
