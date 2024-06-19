@@ -196,6 +196,7 @@ offset_right = 326.0
 offset_bottom = 251.0
 theme_override_font_sizes/font_size = 20
 text = "Link"
+uri = "https://github.com/cold-atom/MinTime"
 
 [node name="Label" type="Label" parent="Settings/About"]
 layout_mode = 1
