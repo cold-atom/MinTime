@@ -78,6 +78,42 @@ theme_override_fonts/font = ExtResource("3_tw67r")
 theme_override_font_sizes/font_size = 30
 text = "Date"
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_1y7k3")
+
+[node name="Right" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("7_immdm")
+
+[node name="Left" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("7_immdm")
+flip_h = true
+
 [node name="Settings" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -232,47 +268,11 @@ stream = ExtResource("4_bbxej")
 stream = ExtResource("5_yrr8k")
 bus = &"ToggleSound"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_1y7k3")
-
-[node name="Right" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("7_immdm")
-
-[node name="Left" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
-texture_normal = ExtResource("7_immdm")
-flip_h = true
-
 [connection signal="date_update" from="." to="." method="_on_date_update"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_on_right_pressed"]
+[connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]
 [connection signal="pressed" from="Settings/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Settings/VBoxContainer2/DisplayDate" to="." method="_on_display_date_pressed"]
 [connection signal="pressed" from="Settings/VBoxContainer2/AboutMinTime" to="." method="_on_about_min_time_pressed"]
 [connection signal="pressed" from="Settings/About/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Control/Right" to="Control" method="_on_right_pressed"]
-[connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]

@@ -128,6 +128,8 @@ grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("4_m4j7c")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Stop" to="." method="_on_stop_pressed"]

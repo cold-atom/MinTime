@@ -4,35 +4,40 @@ extends Control
 @onready var sbox_seconds: SpinBox = $VBoxContainer/GridContainer/Seconds
 @onready var sbox_minutes: SpinBox = $VBoxContainer/GridContainer/Minutes
 @onready var sbox_hours: SpinBox = $VBoxContainer/GridContainer/Hours
+@onready var timer: Timer = $Timer
 
 var seconds = 0
+var wait_time = 1
 
 var timer_state = false
+var accumulated_time = 0.0
 
 func _ready():
 	sbox_hours.connect("value_changed", Callable(self, "_on_time_value_changed"))
-	sbox_minutes.connect("value_changed",Callable(self, "_on_time_value_changed"))
-	sbox_seconds.connect("value_changed",Callable(self, "_on_time_value_changed"))
+	sbox_minutes.connect("value_changed", Callable(self, "_on_time_value_changed"))
+	sbox_seconds.connect("value_changed", Callable(self, "_on_time_value_changed"))
+	timer.start()
 
 func _process(delta):
 	if timer_state:
 		if seconds > 0:
-			seconds -= delta
+			accumulated_time += delta
+			if accumulated_time >= 1.0:
+				seconds -= 1
+				accumulated_time = 0.0
+				
 			if seconds <= 0:
 				seconds = 0
 				timer_state = false
 			
-			var hours = fmod(fmod(seconds,3600*24) / 3600,24)
-			var mins = fmod(seconds, 60*60)/60
+			var hours = fmod(fmod(seconds, 3600 * 24) / 3600, 24)
+			var mins = fmod(seconds, 60 * 60) / 60
 			var sec = fmod(seconds, 60)
 			
-			var formatted_time = "%02d:%02d:%02d" % [hours,mins,sec]
-			
-			countdown.text =formatted_time
-
+			var formatted_time = "%02d:%02d:%02d" % [hours, mins, sec]
+			countdown.text = formatted_time
 		else:
 			timer_state = false
-
 
 func _on_start_pressed():
 	timer_state = true
@@ -47,7 +52,7 @@ func _on_reset_pressed():
 	timer_state = false
 	seconds = 0
 	
-	# Resets the spinbox to 0
+
 	sbox_hours.value = 0
 	sbox_minutes.value = 0
 	sbox_seconds.value = 0
