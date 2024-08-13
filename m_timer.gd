@@ -34,7 +34,7 @@ func _process(delta):
 			timer_state = false
 
 func _on_start_pressed():
-	# Calculate the total seconds from the spin boxes
+	# Calculating the total seconds from the spin boxes
 	seconds = sbox_hours.value * 3600 + sbox_minutes.value * 60 + sbox_seconds.value
 	timer_state = true
 	accumulated_time = 0.0
@@ -55,7 +55,6 @@ func _on_reset_pressed():
 	countdown.text = "00:00:00"
 
 func _on_time_value_changed(_value):
-	# This function is kept for any future use but is not required here
 	pass
 
 func update_timer_display():
