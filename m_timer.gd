@@ -8,7 +8,6 @@ extends Control
 
 var seconds = 0
 var wait_time = 1
-
 var timer_state = false
 var accumulated_time = 0.0
 
@@ -30,20 +29,16 @@ func _process(delta):
 				seconds = 0
 				timer_state = false
 			
-			var hours = fmod(fmod(seconds, 3600 * 24) / 3600, 24)
-			var mins = fmod(seconds, 60 * 60) / 60
-			var sec = fmod(seconds, 60)
-			
-			var formatted_time = "%02d:%02d:%02d" % [hours, mins, sec]
-			countdown.text = formatted_time
+			update_timer_display()
 		else:
 			timer_state = false
 
 func _on_start_pressed():
-	timer_state = true
-
-func _on_time_value_changed(value):
+	# Calculate the total seconds from the spin boxes
 	seconds = sbox_hours.value * 3600 + sbox_minutes.value * 60 + sbox_seconds.value
+	timer_state = true
+	accumulated_time = 0.0
+	update_timer_display()
 
 func _on_stop_pressed():
 	timer_state = false
@@ -51,10 +46,22 @@ func _on_stop_pressed():
 func _on_reset_pressed():
 	timer_state = false
 	seconds = 0
-	
+	accumulated_time = 0.0
 
 	sbox_hours.value = 0
 	sbox_minutes.value = 0
 	sbox_seconds.value = 0
 	
 	countdown.text = "00:00:00"
+
+func _on_time_value_changed(_value):
+	# This function is kept for any future use but is not required here
+	pass
+
+func update_timer_display():
+	var hours = fmod(fmod(seconds, 3600 * 24) / 3600, 24)
+	var mins = fmod(seconds, 60 * 60) / 60
+	var sec = fmod(seconds, 60)
+	
+	var formatted_time = "%02d:%02d:%02d" % [hours, mins, sec]
+	countdown.text = formatted_time
