@@ -26,7 +26,10 @@ func _ready():
 func _process(_delta):
 	#var current_time = Time.get_time_string_from_system()
 	time_calc()
-
+	
+func _input(event):
+	if event.is_action_pressed("Open Menu"):
+		toggle_menu()
 
 func _on_texture_button_pressed():
 	toggle_menu()
@@ -132,3 +135,4 @@ func _on_close_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+	
