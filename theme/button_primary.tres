@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://h8j887lxtt2k"]
+
+[ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="1_ch5dj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjwyc"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_ch5dj")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_qjwyc")
+Button/styles/pressed = null
