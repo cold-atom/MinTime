@@ -34,7 +34,6 @@ func _process(delta):
 			timer_state = false
 
 func _on_start_pressed():
-	# Calculating the total seconds from the spin boxes
 	seconds = sbox_hours.value * 3600 + sbox_minutes.value * 60 + sbox_seconds.value
 	timer_state = true
 	accumulated_time = 0.0

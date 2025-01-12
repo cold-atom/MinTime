@@ -2,11 +2,10 @@ extends Control
 
 @onready var timah: Label = $VBoxContainer/Timah
 
-
 var time = 0
 var timer_on = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if timer_on:
 		time += delta

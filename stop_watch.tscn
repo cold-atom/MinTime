@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://stop_watch.gd" id="1_7ns1x"]
 [ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="1_wdgkj"]
-[ext_resource type="Theme" uid="uid://h8j887lxtt2k" path="res://theme/button_primary.tres" id="3_3gmnw"]
+[ext_resource type="Theme" uid="uid://c0pfpegeias6q" path="res://theme/stop_watch_buton_theme.tres" id="3_4u2wn"]
 [ext_resource type="Script" path="res://stopwatch_main.gd" id="3_6jf1v"]
 [ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="4_8lggi"]
 
@@ -54,15 +54,19 @@ layout_mode = 2
 theme = SubResource("Theme_vu07d")
 alignment = 1
 
+[node name="Start" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_4u2wn")
+text = "Start"
+
 [node name="Stop" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3gmnw")
+theme = ExtResource("3_4u2wn")
 text = "Stop"
 
 [node name="Reset" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("3_3gmnw")
+theme = ExtResource("3_4u2wn")
 text = "Reset"
 
 [node name="Control" type="Control" parent="."]
@@ -85,6 +89,7 @@ grow_vertical = 2
 texture_normal = ExtResource("4_8lggi")
 flip_h = true
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]

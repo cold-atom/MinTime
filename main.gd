@@ -16,13 +16,11 @@ var date_opened = false
 @onready var toggle_sound: AudioStreamPlayer = $ToggleSound
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	set_process(true)
 	date()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#var current_time = Time.get_time_string_from_system()
 	time_calc()
@@ -35,7 +33,6 @@ func _on_texture_button_pressed():
 	toggle_menu()
 	click_sound.play()
 
-# toggles the menu based on the flag
 func toggle_menu():
 	opened = !opened
 	if opened:
@@ -109,7 +106,6 @@ func date():
 func _on_date_update() -> void:
 	date()
 
-# Date label toggling code
 func _on_display_date_pressed():
 	display_date_label()
 	toggle_sound.play()
@@ -121,7 +117,6 @@ func display_date_label():
 	else:
 		date_label.visible = false
 # ------------------------------------
-
 
 func _on_about_min_time_pressed():
 	about.show()
