@@ -4,12 +4,16 @@ signal date_update
 
 var opened = false
 var date_opened = false
+var config = ConfigFile.new()
+
+const CONFIG_PATH = "user://app_settings.cfg"
 
 @onready var time_label: Label = $VBoxContainer/Time
 @onready var am_pm: Label = $VBoxContainer/AmPM
 @onready var date_label: Label = $Date
 @onready var settings: Panel = $Settings
 @onready var about: Panel = $Settings/About
+@onready var display_date_button: Button = $Settings/VBoxContainer2/DisplayDate
 
 #Sounds
 @onready var click_sound: AudioStreamPlayer = $ClickSound
@@ -20,6 +24,7 @@ var date_opened = false
 func _ready():
 	set_process(true)
 	date()
+	load_date_state()
 
 func _process(_delta):
 	#var current_time = Time.get_time_string_from_system()
@@ -109,6 +114,7 @@ func _on_date_update() -> void:
 func _on_display_date_pressed():
 	display_date_label()
 	toggle_sound.play()
+	save_date_state()
 
 func display_date_label():
 	date_opened = !date_opened
@@ -122,12 +128,23 @@ func _on_about_min_time_pressed():
 	about.show()
 	toggle_sound.play()
 
-
 func _on_close_pressed():
 	about.hide()
 	toggle_sound.play()
 
-
 func _on_quit_pressed():
 	get_tree().quit()
+	
+func save_date_state():
+	config.set_value("UI", "date_opened", date_opened)
+	config.save(CONFIG_PATH)
+	
+func load_date_state():
+	var err = config.load(CONFIG_PATH)
+	if err == OK:
+		date_opened = config.get_value("UI", "date_opened", false)
+		date_label.visible = date_opened
+		
+	if display_date_button:
+		display_date_button.button_pressed = date_opened
 	
