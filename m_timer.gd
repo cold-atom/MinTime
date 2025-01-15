@@ -109,3 +109,5 @@ func create_pulse_effect() -> void:
 	pulse_tween.set_loops(0)
 	pulse_tween.tween_property(countdown, "modulate", Color(1, 0, 0, 0.5), 0.5)
 	pulse_tween.tween_property(countdown, "modulate", Color.WHITE, 0.5)
+
+# -
