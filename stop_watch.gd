@@ -17,10 +17,6 @@ func _process(delta):
 		var time_passed = "%02d:%02d:%02d" % [hours,mins,sec]
 		timah.text = time_passed
 
-func _unhandled_input(event):
-	if event.is_action_pressed("Stop Watch"):
-		timer_on = !timer_on
-
 func _on_start_pressed():
 	timer_on = true
 

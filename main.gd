@@ -33,6 +33,7 @@ func _process(_delta):
 func _input(event):
 	if event.is_action_pressed("Open Menu"):
 		toggle_menu()
+		click_sound.play()
 
 func _on_texture_button_pressed():
 	toggle_menu()
