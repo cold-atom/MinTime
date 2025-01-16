@@ -6,6 +6,9 @@ extends Control
 @onready var sbox_hours: SpinBox = $VBoxContainer/GridContainer/Hours
 @onready var timer: Timer = $Timer
 @onready var time_up_animation: AnimationPlayer = $TimeUpAnimation if has_node("TimeUpAnimation") else null
+@onready var timer_sound = $TimerSound
+
+
 var total_seconds: int = 0
 var remaining_seconds: int = 0
 var timer_state: bool = false
@@ -96,6 +99,7 @@ func format_time(seconds_param: int) -> String:
 
 func show_time_over() -> void:
 	countdown.text = "⏰"
+	timer_sound.play()
 	countdown.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	countdown.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	
@@ -127,5 +131,3 @@ func create_pulse_effect() -> void:
 	pulse_tween.set_loops(0)
 	pulse_tween.tween_property(countdown, "modulate", Color(1, 0, 0, 0.5), 0.5)
 	pulse_tween.tween_property(countdown, "modulate", Color.WHITE, 0.5)
-
-# -

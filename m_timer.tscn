@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfvwvs00hsx7d"]
+[gd_scene load_steps=6 format=3 uid="uid://dfvwvs00hsx7d"]
 
 [ext_resource type="Script" path="res://m_timer.gd" id="1_xk6w1"]
 [ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="2_eah8e"]
 [ext_resource type="Script" path="res://mtimer_main.gd" id="3_uda5e"]
 [ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="4_m4j7c"]
+[ext_resource type="AudioStream" uid="uid://c7y2c0q88h6gk" path="res://sounds/timer.wav" id="5_jws7o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -129,6 +130,9 @@ grow_vertical = 2
 texture_normal = ExtResource("4_m4j7c")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="TimerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jws7o")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
