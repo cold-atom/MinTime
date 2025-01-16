@@ -95,7 +95,25 @@ func format_time(seconds_param: int) -> String:
 	return "%02d:%02d:%02d" % [hours, minutes, seconds]
 
 func show_time_over() -> void:
-	countdown.text = "Time Up"
+	countdown.text = "⏰"
+	countdown.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	countdown.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	var original_position = countdown.position
+	var shake_duration = 0.5
+	var shake_intensity = 10
+	var elapsed = 0.0
+	
+	while elapsed < shake_duration:
+		countdown.position = original_position + Vector2(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		elapsed += get_process_delta_time()
+		await get_tree().process_frame
+		
+	countdown.position = original_position
+	
 	if time_up_animation:
 		time_up_animation.play("pulse")
 	else:

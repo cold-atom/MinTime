@@ -268,8 +268,6 @@ stream = ExtResource("4_bbxej")
 stream = ExtResource("5_yrr8k")
 bus = &"ToggleSound"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [connection signal="date_update" from="." to="." method="_on_date_update"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_on_right_pressed"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_on_left_pressed"]
