@@ -5,7 +5,7 @@ MinTime is a simple clock, timer and stopwatch application made with Godot.
 
 I made this application for a personal use to keep track of time while doing some work.
 
-![clock image](screenshot/mt1.png) ![timer image](screenshot/mt4.jpg)
+![clock image](screenshot/mt1.png)
 
 
 ## Features
@@ -13,6 +13,8 @@ I made this application for a personal use to keep track of time while doing som
 - It automatically get's the time and date from the system and displays it.
 - It has Stopwatch.
 - It has Timer.
+
+![features](screenshot/mt4.jpg)
 
 
 ## Installation
