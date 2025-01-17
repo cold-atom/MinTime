@@ -3,10 +3,10 @@
 
 MinTime is a simple clock, timer and stopwatch application made with Godot.
 
-I started this as a personal app to have time displayed like a big digital, later I decided to open source the project and maybe
-it might be helpful to someone.
+I made this application for a personal use to keep track of time while doing some work.
 
-![screenshot first](screenshot/img1.png)
+![clock image](screenshot/mt1.png)
+
 
 ## Features
 
@@ -18,12 +18,8 @@ it might be helpful to someone.
 ## Installation
 
 To get this project to your local machine download the zip file or clone the repository and import the project into the godot.
+Or you can also directly download it from the Godot asset library.
 
 
-
-## Development
-
-You are free to download and modify the code however you like and also if you want to contribute to this project make a new branch, make changes
-and submit pull request.
-
-
+You are free to use, modify, and distribute this project as permitted by the terms of the license. 
+Be sure to review the [LICENSE](https://github.com/cold-atom/MinTime/blob/main/LICENSE) file for details.
