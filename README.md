@@ -23,5 +23,4 @@ To get this project to your local machine download the zip file or clone the rep
 Or you can also directly download it from the Godot asset library.
 
 
-You are free to use, modify, and distribute this project as permitted by the terms of the license. 
-Be sure to review the [LICENSE](https://github.com/cold-atom/MinTime/blob/main/LICENSE) file for details.
+You are free to use, modify, and distribute this project as you wish.
