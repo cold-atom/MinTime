@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvki0lrc00ngr"]
 
-[ext_resource type="Script" path="res://stop_watch.gd" id="1_7ns1x"]
+[ext_resource type="Script" uid="uid://0ugrmqmub2d0" path="res://stop_watch.gd" id="1_7ns1x"]
 [ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="1_wdgkj"]
 [ext_resource type="Theme" uid="uid://c0pfpegeias6q" path="res://theme/stop_watch_buton_theme.tres" id="3_4u2wn"]
-[ext_resource type="Script" path="res://stopwatch_main.gd" id="3_6jf1v"]
+[ext_resource type="Script" uid="uid://b5vmt230ekl6k" path="res://stopwatch_main.gd" id="3_6jf1v"]
 [ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="4_8lggi"]
 
 [sub_resource type="Theme" id="Theme_vu07d"]

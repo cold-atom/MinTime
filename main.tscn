@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://n7xuxr04ynmt"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_8ukk4"]
+[ext_resource type="Script" uid="uid://c5cv8eyo72y25" path="res://main.gd" id="1_8ukk4"]
 [ext_resource type="Texture2D" uid="uid://durhu6u8byuhg" path="res://graphics/circle.png" id="3_02coy"]
 [ext_resource type="FontFile" uid="uid://t3pwjxstanen" path="res://font/DarlingCoffee-V4qex.ttf" id="3_tw67r"]
 [ext_resource type="AudioStream" uid="uid://cp7j1swxp0xcm" path="res://sounds/switch_005.ogg" id="4_bbxej"]
 [ext_resource type="AudioStream" uid="uid://c2tgq7fqfaeep" path="res://sounds/switch_006.ogg" id="5_yrr8k"]
-[ext_resource type="Script" path="res://Control.gd" id="7_1y7k3"]
+[ext_resource type="Script" uid="uid://w6yohm4sc25w" path="res://Control.gd" id="7_1y7k3"]
 [ext_resource type="Texture2D" uid="uid://dvhjtaguwta12" path="res://graphics/navigation_e.png" id="7_immdm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re01w"]
