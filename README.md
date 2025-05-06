@@ -1,6 +1,6 @@
 ![Clock MinTime](icon/mintime.png)
+# MinTime
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-# MinTime 
 
 MinTime is a simple clock, timer and stopwatch application made with Godot.
 
